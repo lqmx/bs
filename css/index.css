@@ -1,0 +1,117 @@
+body {
+    background: #fbe5bc;
+}
+header {
+    width: 100%;
+    height:200px;
+}
+
+.bookshelf {
+    width: 1080px;
+}
+.bookshelf-item {
+    height: 250px;
+    width: 100%;
+    border-left:70px solid #99550b;
+    border-right:70px solid #99550b;
+    border-bottom:30px solid #99550b;
+}
+.book {
+    background: #000;
+    float: left;
+    margin-right: 1px;
+}
+.no {
+    width: 30px;
+    margin: 0 auto 20px;
+    padding-top: 10px;
+    font-size: 12px;
+}
+.s-title {
+    width: 10px;
+    margin: 0 auto;
+    line-height: 14px;
+    font-size: 10px;
+}
+.m-title {
+    width: 15px;
+    margin: 0 auto;
+    line-height: 19px;
+    font-size: 15px;
+}
+.l-title {
+    width: 20px;
+    margin: 0 auto;
+    line-height: 24px;
+    font-size: 20px;
+}
+.sw-book {
+    width: 40px;
+}
+.sw-book > .content {
+    width: 34px;
+    margin: 3px;
+}
+.mw-book {
+    width: 60px;
+}
+.mw-book > .content {
+    width: 52px;
+    margin: 4px;
+}
+.lw-book {
+    width: 80px;
+}
+.lw-book > .content {
+    width: 70px;
+    margin: 5px;
+}
+.sh-book {
+    height:140px;
+    margin-top: 110px;
+}
+.mh-book {
+    height: 180px;
+    margin-top: 70px;
+}
+.lh-book {
+    height:220px;
+    margin-top: 30px;
+}
+
+.cl1 {
+    background: #7986cb;
+    color: #000;
+}
+
+.cl2 {
+    background: #ffff8d;
+    color: #000;
+}
+
+.cl3 {
+    background: #f06292;
+    color: #000;
+}
+
+.cl4 {
+    background: #1de9b6;
+    color: #000;
+}
+
+.cd1 {
+    background: #01579b;
+    color: #fff;
+}
+.cd2 {
+    background: #004d40;
+    color: #fff;
+}
+.cd3 {
+    background: #212121;
+    color: #fff;
+}
+.cd4 {
+    background: #3e2723;
+    color: #fff;
+}
