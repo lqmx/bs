@@ -1,6 +1,37 @@
 body {
     background: #fbe5bc;
 }
+
+.tool {
+    display: none;
+    background: rgba(0, 0, 0, .85);
+    color: #ffffff;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.tool input {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #ffffff;
+    outline: none;
+    width: 100%;
+    color: #ffffff;
+    background-color: transparent;
+}
+.tool ul {
+    margin: 0 0 0 4px;
+    padding:0;
+}
+.tool li {
+    list-style: none;
+    margin: 1px 0;
+}
+.tool li.tip {
+    display: none;
+}
 header {
     width: 100%;
     height:200px;

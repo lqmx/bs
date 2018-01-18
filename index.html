@@ -9,6 +9,15 @@
 
 </head>
 <body>
+<div class="tool">
+    <input type="text">
+    <ul>
+        <li>login</li>
+        <li>logout</li>
+        <li>exit</li>
+        <li class="tip"></li>
+    </ul>
+</div>
 <header></header>
 <div class="bookshelf">
     <div class="bookshelf-item">
@@ -23,8 +32,83 @@
 </div>
 <script>
     $(function () {
-        $('.bookshelf').each(function (k, v) {
+        var $tool = $('.tool');
+        var $input = $(".tool input");
+        var params = {};
+        $(document).keydown(function(event){
+//            console.log(event.keyCode);
+            if(event.shiftKey && event.keyCode === 186) {
+                openTool();
+            }
+            if(event.keyCode === 27) {
+                closeTool();
+            }
         });
+        $input.keydown(function(event) {
+            if(event.keyCode === 13) {
+                var val = $(this).val();
+                var prev = val.substr(0, 1);
+                var cmd = '';
+                var ext = '';
+                if(prev === ':') {
+                    cmd = val.substr(1);
+                } else {
+                    var index = val.indexOf('=')+1;
+                    cmd = val.substr(0, index-1);
+                    ext = val.substr(0, index)+ '"' + val.substr(index)+ '"';
+                }
+                console.log(cmd, ext);
+                closeTool();
+                if(cmd === '') {
+                    return true;
+                }
+                handleCmd(cmd, ext);
+            }
+        });
+        function handleCmd(cmd, ext) {
+            if(cmd === '') {
+                return false;
+            }
+            switch (cmd) {
+                case 'login':
+                    $input.val('name=');
+                    openTool(true, 'input your name');
+                    break;
+                case '=':
+                    break;
+                case 'name':
+                    eval("params." + ext + ";");
+                    $input.val('password=');
+                    openTool(true, 'input your password');
+                    break;
+                case 'password':
+                    eval("params." + ext + ";");
+                    console.log(params);
+                    break;
+                default:
+                    break;
+            }
+            return true;
+        }
+        function closeTool() {
+            $input.val('');
+            $tool.hide();
+        }
+        function openTool(isTip, tip) {
+            if(isTip === undefined) {
+                isTip = false;
+            }
+            if(tip === undefined) {
+                tip = '';
+            }
+            console.log(isTip, tip);
+            if(isTip) {
+                $tool.show().find('li.tip').text(tip).show().siblings().hide();
+            }else {
+                $tool.show().find('li.tip').text(tip).hide().siblings().show();
+            }
+            $input.focus();
+        }
     });
 </script>
 </body>
