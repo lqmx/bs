@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>BookShelf</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index.css?v=5">
     <script src="js/lib/jquery.js"></script>
-
+    <script src="js/lib/jquery.thooClock.js"></script>
 </head>
 <body>
 <div class="tool">
@@ -18,7 +18,9 @@
         <li class="tip"></li>
     </ul>
 </div>
-<header></header>
+<header>
+    <div class="clock"></div>
+</header>
 <div class="bookshelf">
     <div class="bookshelf-item">
         <div class="book lh-book sw-book cd1"><div class="content"><div class="no">A001</div><div class="s-title">光纤光栅传感应用原理</div></div></div>
@@ -35,6 +37,20 @@
         var $tool = $('.tool');
         var $input = $(".tool input");
         var params = {};
+        $('.clock').thooClock({
+            size: 160,
+            onAlarm:function(){
+            },
+            showNumerals:true,
+            brandText:'THOOYORK',
+            brandText2:'Germany',
+            onEverySecond:function(){
+                //callback that should be fired every second
+            },
+            //alarmTime:'15:10',
+            offAlarm:function(){
+            }
+        });
         $(document).keydown(function(event){
 //            console.log(event.keyCode);
             if(event.shiftKey && event.keyCode === 186) {
