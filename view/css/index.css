@@ -12,10 +12,7 @@ body {
     top: 0;
 }
 .tool input {
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 1px solid #ffffff;
+    border: 0;
     outline: none;
     width: 100%;
     color: #ffffff;
@@ -31,6 +28,18 @@ body {
 }
 .tool li.tip {
     display: none;
+}
+.tool li > span {
+    display: block;
+    min-width: 100px;
+    float: left;
+}
+.des {
+    font-size: 10px;
+    font-style: italic;
+}
+.clear {
+    clear: both;
 }
 header {
     width: 100%;
