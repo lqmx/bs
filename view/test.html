@@ -1,3 +1,6 @@
+<?php
+$v=time();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,77 +9,30 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        .clock {
-            position: relative;
-            width: 400px;
-            height: 400px;
-            margin: 20px auto;
-            border-radius: 50%;
-            background: url(images/clock.png);
-        }
-        .clock div:nth-child(1), .clock div:nth-child(2), .clock div:nth-child(3), .clock div:nth-child(4) {
-            position: absolute;
-            -webkit-transform-origin: bottom;
-        }
-        .clock div:nth-child(1) {
-            top: 45px;
-            left: 197px;
-            width: 4px;
-            height: 160px;
-            border-top-right-radius: 50px;
-            background: #343339;
-        }
-        .clock div:nth-child(2) {
-            top: 80px;
-            left: 195px;
-            width: 6px;
-            height: 120px;
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
-            background: #343332;
-        }
-        .clock div:nth-child(3) {
-            top: 100px;
-            left: 195px;
-            width: 8px;
-            height: 100px;
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
-            background: #010001;
-        }
-        .clock div:nth-child(4) {
-            top: 189px;
-            left: 188px;
-            width: 20px;
-            height: 20px;
-            border: 1px solid #fff;
-            border-radius: 50%;
-            background: rgba(237, 200, 45, 1);
-        }
-    </style>
-
+    <link rel="stylesheet" href="../view/component/cmdtool/cmd_tool.css?v<?php echo $v;?>">
+    <script ></script>
 </head>
 <body>
-<div class="clock">
-    <div id="sec"></div>
-    <div id="min"></div>
-    <div id="hour"></div>
-    <div></div>
-</div>
+<input type="text">
+<script src="../view/dep/jquery.js?v<?php echo $v;?>"></script>
+<script src="../view/component/cmdtool/CmdTool.js?v<?php echo $v;?>"></script>
 <script>
-    var hour = document.getElementById('hour');
-    var min = document.getElementById('min');
-    var sec = document.getElementById('sec');
-    var timer = null;
-    function sport (){
-        var time = new Date();
-        sec.style.webkitTransform = 'rotate(' + time.getSeconds() * 6 + 'deg)';
-        min.style.webkitTransform = 'rotate(' + (time.getMinutes() + time.getSeconds() / 60) * 6 + 'deg)';
-        hour.style.WebkitTransform = 'rotate(' + (time.getHours() % 12 + time.getMinutes() / 60 + time.getSeconds() / 3600) * 30 + 'deg)';
-        console.log(sec.style.WebkitTransform);
-    }sport ();
-    setInterval(sport, 1000);
+    $(function () {
+        var cmds = [
+            {
+                cmd: 'login',
+                des: 'login the system'
+            }, {
+                cmd: 'logout',
+                des: 'logout the system'
+            }, {
+                cmd: 'exit',
+                des: 'exit the tool'
+            }
+        ];
+        CmdTool.init(cmds);
+
+    });
 </script>
 </body>
 </html>

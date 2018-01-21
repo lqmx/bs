@@ -1,0 +1,39 @@
+.cmd-tool {
+    display: none;
+    background: rgba(0, 0, 0, .85);
+    color: #ffffff;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.cmd-tool input {
+    border: 0;
+    outline: none;
+    width: 100%;
+    color: #ffffff;
+    background-color: transparent;
+}
+.cmd-tool ul {
+    margin: 0 0 0 4px;
+    padding:0;
+}
+.cmd-tool li {
+    list-style: none;
+    margin: 1px 0;
+}
+.cmd-tool li.tip {
+    display: none;
+}
+.cmd-tool li > span {
+    display: block;
+    min-width: 100px;
+    float: left;
+}
+.cmd-tool .des {
+    font-size: 10px;
+    font-style: italic;
+}
+.clear {
+    clear: both;
+}

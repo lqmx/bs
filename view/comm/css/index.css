@@ -161,9 +161,14 @@ header {
     color: #fff;
 }
 footer {
-    display: block;
+    display: none;
     width: 1080px;
     height: 50px;
     border-left:70px solid #99550b;
     border-right:70px solid #99550b;
+}
+
+.book-hover {
+    margin-right: 1px;
+    margin-left: 1px;
 }

@@ -11,6 +11,7 @@ class Index {
 
     public function exec() {
         Macaw::get('/', 'App\Controllers\Index\Index@index');
+        Macaw::get('/test', 'App\Controllers\Index\Index@test');
     }
 }
 

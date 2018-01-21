@@ -1,12 +1,13 @@
+<?php $v=time(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BookShelf</title>
-    <link rel="stylesheet" href="../view/css/reset.css">
-    <link rel="stylesheet" href="../view/css/index.css?v=1">
-    <script src="../view/js/lib/jquery.js"></script>
-    <script src="../view/js/lib/jquery.thooClock.js"></script>
+    <title>Bookshelf</title>
+    <link rel="stylesheet" href="comm/css/reset.css?v<?php echo $v;?>">
+    <!--<link rel="stylesheet" href="../view/css/default.css?v<?php echo $v;?>">-->
+    <link rel="stylesheet" href="comm/css/component2.css?v<?php echo $v;?>">
+    <link rel="stylesheet" href="comm/css/index.css?v<?php echo $v;?>">
 </head>
 <body>
 <div class="tool">
@@ -19,202 +20,90 @@
 </header>
 <div class="bookshelf">
     <div class="bookshelf-item">
-        <div class="book lh-book sw-book cd1"><div class="content"><div class="no">A001</div><div class="s-title">光纤光栅传感应用原理</div></div></div>
-        <div class="book lh-book sw-book cd2"><div class="content"><div class="no">B001</div><div class="s-title">模糊控制理论与应用</div></div></div>
-        <div class="book mh-book mw-book cd3"><div class="content"><div class="no">C001</div><div class="l-title">代码大全</div></div></div>
-        <div class="book mh-book mw-book cl1"><div class="content"><div class="no">C001</div><div class="m-title">信息系统管理</div></div></div>
-        <div class="book sh-book lw-book cd4"><div class="content"><div class="no">C001</div><div class="l-title">算法</div></div></div>
+        <ul id="bk-list" class="bk-list clearfix">
+            <li>
+                <div class="bk-book book-3">
+                    <div class="bk-front">
+                        <div class="bk-cover">
+                            <h2>
+                                <span>作者</span>
+                                <span>书名</span>
+                            </h2>
+                        </div>
+                        <div class="bk-cover-back"></div>
+                    </div>
+                    <div class="bk-page">
+                        <div class="bk-content bk-content-current">
+                            <p>内容</p>
+                        </div>
+                        <div class="bk-content">
+                            <p>内容2</p>
+                        </div>
+                        <div class="bk-content">
+                            <p>内容3</p>
+                        </div>
+                    </div>
+                    <div class="bk-back">
+                        <img src="comm/img/3.png" alt="cat"/>
+                        <p>反面内容</p>
+                    </div>
+                    <div class="bk-right"></div>
+                    <div class="bk-left">
+                        <h2>
+                            <span>作者</span>
+                            <span>书名</span>
+                        </h2>
+                    </div>
+                    <div class="bk-top"></div>
+                    <div class="bk-bottom"></div>
+                </div>
+            </li>
+            <li>
+                <div class="bk-book book-3">
+                    <div class="bk-front">
+                        <div class="bk-cover">
+                            <h2>
+                                <span>作者</span>
+                                <span>书名</span>
+                            </h2>
+                        </div>
+                        <div class="bk-cover-back"></div>
+                    </div>
+                    <div class="bk-page">
+                        <div class="bk-content bk-content-current">
+                            <p>内容</p>
+                        </div>
+                        <div class="bk-content">
+                            <p>内容2</p>
+                        </div>
+                        <div class="bk-content">
+                            <p>内容3</p>
+                        </div>
+                    </div>
+                    <div class="bk-back">
+                        <img src="comm/img/3.png" alt="cat"/>
+                        <p>反面内容</p>
+                    </div>
+                    <div class="bk-right"></div>
+                    <div class="bk-left">
+                        <h2>
+                            <span>作者</span>
+                            <span>书名</span>
+                        </h2>
+                    </div>
+                    <div class="bk-top"></div>
+                    <div class="bk-bottom"></div>
+                </div>
+            </li>
+        </ul>
     </div>
     <div class="bookshelf-item"></div>
     <div class="bookshelf-item"></div>
 </div>
 <footer></footer>
-<script>
-    $(function () {
-        $('.clock').thooClock({
-            size: 160,
-            onAlarm:function(){
-            },
-            showNumerals:true,
-            brandText:'THOOYORK',
-            brandText2:'Germany',
-            onEverySecond:function(){
-                //callback that should be fired every second
-            },
-            //alarmTime:'15:10',
-            offAlarm:function(){
-            }
-        });
-        var CMD_TYPE_SYS = 1;
-        var CMD_TYPE_ALIGN = 2;
-        var CMD_TYPE_UNDEFINED = 0;
-        var cmdType = {
-            ':': CMD_TYPE_SYS,
-            '=': CMD_TYPE_ALIGN,
-        };
-        var data = {};
-        var curCmd = {
-            type: CMD_TYPE_SYS,
-            content: '',
-        };
-        var params = {};
-
-        var Tool = function (data) {
-            this.data = data;
-            this.$me =$('.tool');
-            this.$input = $('.tool input');
-            this.$tip = $('.tool .tip');
-            this.$list = $('.tool ul');
-            this.$cmd = {};
-            this.init();
-        };
-        Tool.prototype = {
-            init: function () {
-                var self = this;
-                $.each(self.data, function (k, v) {
-                    self.$list.append('<li class="clear"><span>' + v.cmd + '</span><span class="des ">'+ v.des + '</span></li>');
-                });
-                self.$input.keyup(function(event) {
-                    var val = $(this).val();
-                    if(val === '') {
-                        self.hide();
-                        return true;
-                    }
-                    if(event.key === 'Enter') {
-                        curCmd.type = getCmdType(val.substr(0, 1));
-                        curCmd.content = val.substr(1);
-//                        console.log(curCmd);
-                        self.hide();
-                        self.exec(curCmd);
-                    }
-                    var cmd = '';
-                    if(val.length > 0) {
-                        cmd = val.substr(1);
-                    }
-                    self.$list.find('li').each(function (k, v) {
-                        if(cmd === '' || $(v).find('span:first-child').text().indexOf(cmd) !== -1) {
-                            $(v).show();
-                        }
-                        else {
-                            $(v).hide();
-                        }
-                    });
-                });
-            },
-            hide: function () {
-                var self = this;
-                self.$input.val('');
-                self.$me.hide();
-                self.$tip.hide();
-            },
-            tip: function (tip) {
-                var self = this;
-                self.$tip.text(tip).show();
-            },
-            show: function (isShowList) {
-                var self = this;
-                if(isShowList === undefined) {
-                    isShowList = true;
-                }
-                if(isShowList) {
-                    self.$list.show();
-                }else {
-                    self.$list.hide();
-                }
-                self.$me.show();
-                self.$input.focus();
-            },
-            undefinedCmd: function () {
-                var self = this;
-                self.show(false);
-                self.tip('undefined command');
-            },
-            exec: function (cmd) {
-                var self = this;
-                switch (cmd.type) {
-                    case CMD_TYPE_SYS:
-                        switch(cmd.content) {
-                            case 'login':
-                                self.show(false);
-                                self.tip('input your name and password like: name password');
-                                self.cmd({
-                                    type: CMD_TYPE_ALIGN,
-                                    params: ['name', 'password'],
-                                });
-                                break;
-                            case 'exit':
-                                self.hide();
-                                break;
-                            default:
-                                self.undefinedCmd();
-                        }
-                        break;
-                    case CMD_TYPE_ALIGN:
-                        var values = cmd.content.split(' ');
-                        var len = values.length;
-                        $.each(self.$cmd.params, function (k, v) {
-                            if(k < len) {
-                                eval('params.' + v + '="' + values[k] + '"');
-                            }else {
-                                eval('params.' + v + '=""');
-                            }
-                        });
-                        break;
-                    default:
-                        self.undefinedCmd();
-                        break;
-                }
-            },
-            cmd: function (cmd) {
-                var self = this;
-                self.$cmd = cmd;
-                switch (cmd.type) {
-                    case CMD_TYPE_ALIGN:
-                        self.$input.val("=");
-                        break;
-                    case CMD_TYPE_SYS:
-                        self.$input.val(':');
-                        break;
-                    default:
-                        break;
-                }
-            }
-        };
-        var toolData = [{
-            cmd: 'login',
-            des: 'login the system'
-        }, {
-            cmd: 'logout',
-            des: 'logout the system'
-        }, {
-            cmd: 'exit',
-            des: 'exit the tool'
-        }];
-        initData(toolData);
-        var tool = new Tool(toolData);
-        $(document).keydown(function(event){
-            if(event.shiftKey && event.key === ':') {
-                tool.show();
-            }
-            if(event.key === 'Escape') {
-                tool.hide();
-            }
-        });
-        function getCmdType(str) {
-            if(cmdType[str]) {
-                return cmdType[str];
-            }
-            return CMD_TYPE_UNDEFINED;
-        }
-        function initData(toolData) {
-            var cmds = [];
-            $.each(toolData, function (k, v) {
-                cmds.push(v.cmd);
-            });
-            data.cmds = cmds;
-        }
-
-    });
-</script>
+<script src="dep/jquery.js?v<?php echo $v;?>"></script>
+<script src="dep/jquery.md5.js?v<?php echo $v;?>"></script>
+<script src="dep/jquery.thooClock.js?v<?php echo $v;?>"></script>
+<script src="comm/js/index.js?v<?php echo $v;?>"></script>
 </body>
 </html>

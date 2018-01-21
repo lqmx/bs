@@ -7,7 +7,8 @@
     }
   ],
   "require": {
-    "noahbuscher/macaw": "dev-master"
+    "noahbuscher/macaw": "dev-master",
+    "monolog/monolog": "^1.23"
   },
   "autoload": {
     "psr-4": {
