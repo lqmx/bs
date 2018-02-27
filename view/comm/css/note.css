@@ -1,0 +1,55 @@
+body{
+    background: #e2e2e2;
+}
+
+.paper {
+    background: #FFFFFF;
+    margin: 20px auto;
+    width: 95%;
+    padding: 10px;
+    min-height: 800px;
+}
+
+.paper .title {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.paper .brief {
+    word-wrap: normal;
+    text-shadow: none;
+    font-family: Consolas,Monaco,'Andale Mono',monospace;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    tab-size: 4;
+    hyphens: none;
+    overflow: auto;
+    margin: 1.2em 0!important;
+    background-color: #292b36;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 6px;
+    position: relative;
+}
+
+.paper ul.notes {
+    margin: 40px 20px;
+}
+
+ul.notes li {
+    border-left: 5px solid #42a5f5;
+    padding-left: 10px;
+    height: 60px;
+    line-height: 60px;
+    margin: 10px 0;
+    border-bottom: 3px solid #e2e2e2;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+}

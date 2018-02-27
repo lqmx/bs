@@ -1,43 +1,8 @@
 body {
     background: #fbe5bc;
+    background: url(../img/bg2.jpeg) repeat;
 }
 
-.tool {
-    display: none;
-    background: rgba(0, 0, 0, .85);
-    color: #ffffff;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-.tool input {
-    border: 0;
-    outline: none;
-    width: 100%;
-    color: #ffffff;
-    background-color: transparent;
-}
-.tool ul {
-    margin: 0 0 0 4px;
-    padding:0;
-}
-.tool li {
-    list-style: none;
-    margin: 1px 0;
-}
-.tool li.tip {
-    display: none;
-}
-.tool li > span {
-    display: block;
-    min-width: 100px;
-    float: left;
-}
-.des {
-    font-size: 10px;
-    font-style: italic;
-}
 .clear {
     clear: both;
 }
@@ -57,14 +22,20 @@ header {
 .bookshelf-item {
     height: 250px;
     width: 100%;
-    border-left:70px solid #99550b;
-    border-right:70px solid #99550b;
-    border-bottom:30px solid #99550b;
+    border-left:70px solid #71380f;
+    border-right:70px solid #71380f;
+    border-bottom:30px solid #71380f;
 }
 .book {
     background: #000;
+    color: #ffffff;
     float: left;
     margin-right: 1px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
 }
 .no {
     width: 30px;
@@ -77,18 +48,21 @@ header {
     margin: 0 auto;
     line-height: 14px;
     font-size: 10px;
+    word-wrap: break-word;
 }
 .m-title {
     width: 15px;
     margin: 0 auto;
     line-height: 19px;
     font-size: 15px;
+    word-wrap: break-word;
 }
 .l-title {
     width: 20px;
     margin: 0 auto;
     line-height: 24px;
     font-size: 20px;
+    word-wrap: break-word;
 }
 .sw-book {
     width: 40px;
@@ -114,61 +88,59 @@ header {
 .sh-book {
     height:140px;
     margin-top: 110px;
+    overflow: hidden;
 }
 .mh-book {
     height: 180px;
     margin-top: 70px;
+    overflow: hidden;
 }
 .lh-book {
     height:220px;
     margin-top: 30px;
+    overflow: hidden;
 }
 
-.cl1 {
-    background: #7986cb;
-    color: #000;
-}
 
-.cl2 {
-    background: #ffff8d;
-    color: #000;
-}
-
-.cl3 {
-    background: #f06292;
-    color: #000;
-}
-
-.cl4 {
-    background: #1de9b6;
-    color: #000;
-}
-
-.cd1 {
-    background: #01579b;
-    color: #fff;
-}
-.cd2 {
-    background: #004d40;
-    color: #fff;
-}
-.cd3 {
-    background: #212121;
-    color: #fff;
-}
-.cd4 {
-    background: #3e2723;
-    color: #fff;
-}
 footer {
     display: none;
     width: 1080px;
     height: 50px;
-    border-left:70px solid #99550b;
-    border-right:70px solid #99550b;
+    border-left:70px solid #71380f;
+    border-right:70px solid #71380f;
 }
 
 .book-hover {
     margin-right: 1px;
     margin-left: 1px;
+}
+
+.c-it_humanity  {
+    background: #5651ae;
+    color: #ffffff;
+}
+
+.c-computer_technology {
+    background: #00a0aa;
+    color: #ffffff;
+}
+
+.c-front_end {
+    background: #303f4d;
+    color: #ffffff;
+}
+
+.c-product {
+    background: #e95059;
+    color: #ffffff;
+}
+
+.c-back_end{
+    background: #c5f0a4;
+    color: #000000;
+}
+
+.c-mobile{
+    background: #bab5f6;
+    color: #000000;
 }
